@@ -1,0 +1,7 @@
+{
+  "name": "appCorrida",
+  "integrations": {
+    "cordova": {}
+  },
+  "type": "ionic-angular"
+}

@@ -1,0 +1,53 @@
+page-login {
+
+#principalCustom {
+       background-color: #FF4500;
+       background-image: url(../../assets/imgs/loginBackground.jpg);
+       background-size: cover;
+       background-position: center;
+
+       ion-list button{
+         font-size: 1em;
+         color: white;
+         text-shadow: 1.5px 1.5px 5px black; 
+       }
+  }
+
+.loggoogle{
+  border-radius: 50px;
+  background-color: white !important;
+  margin:auto;
+  display: block;
+  padding: 1px 40px 1px 40px;
+  box-shadow: 2px 2px 10px black;
+  margin-top: 5%;
+  width: 80%;
+  height: 30px;
+  font-size: 1.2em;
+  font-weight: bold;
+  font-family: inherit, Roboto, "Helvetica Neue", "sans-serif";
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  text-align: center;
+}
+
+.loginFooter{
+  position: absolute;
+  bottom:0;
+  text-align: center;
+  width: 100%;
+}
+
+.msgCadastro{
+  margin-top:5%;
+  text-align: center;
+  color: white;
+  text-shadow: 1.5px 1.5px 5px rgb(177, 165, 2);
+  font-size: 1.2em;
+  margin-left: -10%;
+}
+
+
+}

@@ -1,0 +1,35 @@
+<ion-header>
+	<ion-navbar>
+		<ion-title>Cadastro</ion-title>
+	</ion-navbar>
+</ion-header>
+
+<ion-content>
+
+	<form (ngSubmit)="signup()" [formGroup]="form">
+		<ion-list inset>
+
+			<ion-item [ngClass]="{ invalid: emailErrors.hasError('*', ['touched']) }">
+				<ion-input type="text" placeholder="Email" formControlName="email"></ion-input>
+			</ion-item>
+
+			<div ngxErrors="email" #emailErrors="ngxErrors">
+				<div [ngxError]="['email', 'required']" [when]="['touched']">Insira um email válido</div>
+			</div>
+
+			<ion-item [ngClass]="{ invalid: passwordErrors.hasError('*', ['touched']) }">
+				<ion-input type="password" placeholder="Password" formControlName="password"></ion-input>
+			</ion-item>
+
+			<div ngxErrors="password" #passwordErrors="ngxErrors">
+				<div [ngxError]="['minlength', 'required']" [when]="['touched']">A senha deve ter pelo menos 7 caracteres</div>
+			</div>
+		</ion-list>
+
+		<div padding-horizontal>
+			<div class="form-error">{{signupError}}</div>
+
+			<button ion-button full type="submit" [disabled]="!form.valid">Cadastrar</button>
+		</div>
+	</form>
+</ion-content>
