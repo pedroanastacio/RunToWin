@@ -1,0 +1,45 @@
+
+<ion-header id="header">
+  <ion-navbar>
+    <ion-title>Produto</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+
+    <!--<ion-item>
+        <img src="{{ imgPath }}" alt="" /> 
+        <button ion-button block color="dark" (click)="escolherFoto()">Escolher foto</button>
+    </ion-item>-->
+    <div class="fotoProduto">
+      <img src="{{ url }}" />
+    </div>
+    <BR>
+    <div>
+      <div class="logoCentauro" *ngIf="loja == 'Centauro'"><img src="assets/imgs/logo_centauro.png"></div>
+      <div class="logoDucks" *ngIf="loja == 'Ducks Sports'"><img src="assets/imgs/logo_ducks.png"></div>
+      <div class="logoNetshoes" *ngIf="loja == 'Netshoes'"><img src="assets/imgs/logo_netshoes.png"></div>
+      <p>
+        <span class="nomeProduto"><b>{{nomeProduto}}</b></span><BR>
+        <span class="KmPointsShow"><span class="kmPointsNum"><b>{{kmPoints}}</b></span> KmPoints</span>
+      </p>
+      <p class="cupom"><ion-icon name="pricetags" color="secondary"></ion-icon>{{desconto}}%</p>
+      <p class="textos">de<BR><span class="preco">{{preco | currency:'BRL':true}}</span></p>
+      <p class="textos">por<BR>
+      <span class="desconto"><b> {{ precoDesconto | currency:'BRL':true }}</b></span></p>
+      <p class="textos"><b>Tamanho:</b> {{tamanhos}} </p>
+      <p class="textos"><b>Cor:</b> {{cor}} </p>
+    </div>
+
+    <!--<div class ="cupomBox" *ngIf="cupom != null">
+      <BR>
+      <h3 block>Cupom</h3>
+      <p>{{cupom}}</p>
+      <button style="margin-bottom: 32px;" ion-button color="secondary" (click)="copyText()">Copiar</button>
+    </div>-->
+
+    <button *ngIf="cupom == null" ion-button class="buttons" block color="warning" (click)="gerarCupom()">Pegar cupom</button>
+    
+    <button ion-button class="buttons" block color="dark" (click)="irParaLoja()">Ir para loja</button>
+
+</ion-content>

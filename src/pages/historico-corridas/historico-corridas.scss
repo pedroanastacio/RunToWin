@@ -1,0 +1,38 @@
+page-historico-corridas {
+    .toolbar-background{
+        background-color: #ece41a !important;
+      }
+
+.filtros{
+  text-shadow: 1px 1px 1px black;
+  
+}
+
+.colunas{
+  text-align: center;
+  font-size: 0.9em;
+}
+
+.total{
+  text-align: center;
+  
+}
+
+.totalGrid{
+  height: 7%;
+  min-height: 35px;
+  max-height: 50px;
+  background-color: black;
+  bottom: 0;
+  left: 0;
+  color:white;
+}
+
+.unidades{
+  font-size: 0.7em;
+}
+
+.data{
+  font-size: 1em;
+}
+}

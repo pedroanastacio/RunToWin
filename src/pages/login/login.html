@@ -1,0 +1,42 @@
+<ion-content id="principalCustom">
+	<form (ngSubmit)="login()" [formGroup]="loginForm">
+		<ion-list inset>
+
+			<ion-item class="inputs" [ngClass]="{ invalid: emailErrors.hasError('*', ['touched', 'dirty']) }">
+				<ion-input class="inputLogin" type="text" placeholder="Email" formControlName="email"></ion-input>
+			</ion-item>
+
+			<div class= "inicio" ngxErrors="email" #emailErrors="ngxErrors">
+				<div [ngxError]="['email', 'required']" [when]="['touched', 'dirty']"><p class="msgred">Insira um email válido.</p></div>
+			</div>
+
+			<ion-item [ngClass]="{ invalid: passwordErrors.hasError('*', ['touched']) }">
+				<ion-input class="inputLogin" type="password" placeholder="Senha" formControlName="password"></ion-input>
+			</ion-item>
+
+			<div ngxErrors="password" #passwordErrors="ngxErrors">
+				<div [ngxError]="['minlength', 'required']" [when]="['touched']"> <p class="msgred">A senha deve ter pelo menos 7 caracteres.</p></div>
+			</div>
+		</ion-list>
+
+		<div>
+			<div class="form-error">{{loginError}}</div>
+
+			<button class ="bottun"  block type="submit" [disabled]="!loginForm.valid">Entrar</button>
+		</div>	
+		</form>	
+		<div class="loginButtons">
+			<button class="loggoogle" icon-center full (click)="loginWithGoogle()">
+				 Entrar com   <img style="margin-left: 6px;"src="assets/icon/logoGoogle2.png">
+			</button>
+		</div>
+					
+				<div class="loginFooter">
+					<p class="msgCadastro">
+						Ainda não se cadastrou?<button ion-button clear class="bntCadastro" (click)="signup()">Cadastrar-se</button>
+					</p>
+				</div>
+			
+		
+	
+</ion-content>

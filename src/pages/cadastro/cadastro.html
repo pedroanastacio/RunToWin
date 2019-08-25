@@ -1,0 +1,35 @@
+
+<ion-content class= "princCustom">
+
+	<form (ngSubmit)="signup()" [formGroup]="form">
+		<ion-list inset>
+
+			<ion-item class="inputs" [ngClass]="{ invalid: emailErrors.hasError('*', ['touched']) }">
+				<ion-input class="input" type="text" placeholder="Email" formControlName="email"></ion-input>
+			</ion-item>
+
+			<div class= "inicio" ngxErrors="email" #emailErrors="ngxErrors">
+				<div [ngxError]="['email', 'required']" [when]="['touched']"><p class="msgred">Insira um email válido</p></div>
+			</div>
+
+			<ion-item [ngClass]="{ invalid: passwordErrors.hasError('*', ['touched']) }">
+				<ion-input class="input" type="password" placeholder="Senha" formControlName="password"></ion-input>
+			</ion-item>
+
+			<div ngxErrors="password" #passwordErrors="ngxErrors">
+				<div [ngxError]="['minlength', 'required']" [when]="['touched']"><p class="msgred">A senha deve ter pelo menos 7 caracteres</p></div>
+			</div>
+		</ion-list>
+
+		<div>
+			<div class="form-error">{{signupError}}</div>
+
+			<button  class="bottun" full type="submit" [disabled]="!form.valid">Cadastrar</button>
+
+		</div>
+	</form>
+		<div class="bottun2">
+		<button  class="bottun1" (click) = "voltar()"><ion-icon style="margin-right: 10px;" name="arrow-round-back"></ion-icon>Voltar</button>
+</div>
+	
+</ion-content>

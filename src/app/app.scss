@@ -1,0 +1,144 @@
+
+.alertLogin{
+   color: black;
+}
+
+.alert-sub-title{
+    text-align: justify;
+}
+
+.alertCupom{
+    .alert-wrapper{
+        background-color: white !important;
+        border-radius: 30px;
+    }
+    .alert-title{
+        text-align: center;
+    }
+    .alert-sub-title{
+        text-align: center;
+    }
+    .buttonCopiar{
+        color: black;
+        background-color: #ece41a;
+        border-radius: 15px;
+        
+    }
+    .buttonCancelar{
+        color: white;
+        background-color: black;
+        border-radius: 15px;
+    }
+}
+
+.alertKmPoints{
+    .alert-wrapper{
+        border-radius: 30px;
+    }
+    .alert-title{
+        text-align: center;
+    }
+    .alert-sub-title{
+        text-align: center;
+    }
+}
+
+.alert-wrapper{
+    background-color: #ece41a !important;
+    border-radius: 30px;
+}
+
+.buttonAlert{
+    color: black !important;
+}
+
+.header{
+    background-color: #ece41a;
+}
+
+.toolbar-background.menuToolbar {
+    background-color: black;
+    
+  }
+
+.toolbar-background{
+    background-color: #ece41a;
+}
+
+
+.iconMenu{
+    color: black !important;
+    text-shadow: 1px 1px 1px #ece41a;
+    margin-right: 15px;
+}
+
+.iconMenuPerfil{
+    color: black !important;
+    text-shadow: 1px 1px 1px #ece41a;
+    margin-right: 12px;
+}
+
+.iconMenuCorrida{
+    color: black !important;
+    text-shadow: 1px 1px 1px #ece41a;
+    margin-right: 18px;
+}
+
+.iconMenuCupons{
+    color: black !important;
+    text-shadow: 1px 1px 1px #ece41a;
+    margin-right: 11px;
+}
+
+.buttonMenu{
+    background-color: #ece41a;
+    color: black;
+}
+
+.kmPoints{
+    background-color: #222;
+    color: white;
+    position: fixed; 
+    bottom: 0; 
+    right: 0;
+}
+
+.menu{
+    background-color: #ece41a;
+}
+
+ion-loading{
+    .loading-wrapper {
+        background-color: #ece41a !important;
+        box-shadow: none;
+        border-radius: 20px !important;
+    } 
+    .loading-content{
+        color: black;
+    }   
+    .spinner-crescent circle {
+       stroke-width: 8px;
+       stroke: black !important;
+    }  
+}
+
+.fotoGoogle{
+    float: left;
+    border-radius: 50%;
+    width: 14%; 
+    margin-right: 12px;
+    
+}
+
+.name{
+    color: white;
+    font-size: 1.1em;
+}
+
+.email{
+    color: white;
+    font-size: 1em;
+}
+
+
+   

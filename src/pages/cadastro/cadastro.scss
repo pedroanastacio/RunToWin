@@ -1,0 +1,69 @@
+page-cadastro {
+  .msgred{
+    color: red;
+    text-shadow: 1px 1px black;
+    font-size: 0.8em;
+  }
+
+  .princCustom{
+    background-image: url(../../assets/imgs/loginBackground.jpg);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+  }
+
+  .inicio{
+    margin-top: 10px;
+  }
+  .inputs{
+    margin-top: 5%;
+  }
+
+  .bottun{
+    border-radius: 50px;
+    background-color: #ece41a !important;
+    margin:auto;
+    display: block;
+    padding: 1px 40px 1px 40px;
+    box-shadow: 2px 2px 10px black;
+    width: 80%;
+    height: 30px;
+    font-size: 1.2em;
+    font-weight: bold;
+    font-family: inherit, Roboto, "Helvetica Neue", "sans-serif";
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    text-align: center;
+    margin-top: 10%;
+  }
+
+  .bottun1{
+    margin-top: 5%;
+    border-radius: 50px;
+    background-color: #ece41a !important;
+    margin:auto;
+    display: block;
+    padding: 1px 40px 1px 40px;
+    box-shadow: 2px 2px 10px black;
+    width: 80%;
+    height: 30px;
+    font-size: 1.2em;
+    font-weight: bold;
+    font-family: inherit, Roboto, "Helvetica Neue", "sans-serif";
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    text-align: center;
+  }
+
+  .bottun2{
+    margin-top: 5%;
+  }
+
+  .toolbar-background{
+    background-color: #ece41a !important;
+  }
+}

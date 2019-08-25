@@ -1,0 +1,40 @@
+<ion-menu class="allMenu" [content]="content">
+  <ion-header color="dark">
+    <ion-toolbar color="dark">
+      <div *ngIf="useGoogle" style="background-color: #222">
+        <img class="fotoGoogle" src="{{photoUrl}}">
+        <span text-wrap class="name"><b>{{name}}</b></span><BR>
+        <span class="email">{{email}}</span>
+      </div>
+      <div *ngIf="!useGoogle">
+        <div *ngFor="let userperfil of userperfils | async" style="background-color: #222">
+          <img class="fotoGoogle"src="assets/icon/user2.png" *ngIf = "(userperfil.sexo == 'Masculino') && !useGoogle">
+          <img class="fotoGoogle" src="assets/icon/user_female2.png" *ngIf = "(userperfil.sexo == 'Feminino') && !useGoogle">
+          <span *ngIf="!useGoogle" class="name"><b>{{userperfil.name}}</b></span><BR>
+          <span *ngIf="!useGoogle" class="email">{{email}}</span>
+        </div>
+      </div>    
+    </ion-toolbar>
+  </ion-header>
+
+  <ion-content class="menu">
+    <ion-list>
+      <button class="buttonMenu" menuClose ion-item *ngFor="let p of pages" (click)="openPage(p)">
+        <ion-icon class="iconMenuCorrida" name="walk" *ngIf="p.title == 'Corrida'"></ion-icon>
+        <ion-icon class="iconMenuPerfil" name="person" *ngIf="p.title == 'Perfil'"></ion-icon>
+        <ion-icon class="iconMenu" name="stats" *ngIf="p.title == 'Histórico de corridas'"></ion-icon>
+        <ion-icon class="iconMenuCupons" name="pricetags" *ngIf="p.title == 'Cupons'"></ion-icon>
+        <ion-icon class="iconMenuCupons" name="cart" *ngIf="p.title == 'Meus cupons'"></ion-icon>
+        {{p.title}}
+      </button>
+
+      <ion-item ion-fixed class="kmPoints" *ngIf="temKmPoints">
+        <span style="font-size: 18px">KmPoints: </span><ion-badge slot="end" style="font-size:19px; border-radius:100px; color:black; float:right" color="secondary">{{kmPointsArred}}</ion-badge>
+      </ion-item>
+    </ion-list>
+  </ion-content>
+
+</ion-menu>
+
+<!-- Disable swipe-to-go-back because it's poor UX to combine STGB with side menus -->
+<ion-nav [root]="rootPage" #content swipeBackEnabled="false"></ion-nav>

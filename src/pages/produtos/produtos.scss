@@ -1,0 +1,78 @@
+page-produtos {
+  
+ .cupom{
+     font-size: 0.8em;
+     color: #32db64;
+     
+ }
+
+ .preco{
+     color: red;
+     text-decoration: line-through;
+     font-size: 0.6em;
+ }
+
+ .desconto{
+     color: #32db64;
+     font-size: 0.9em;
+     text-align: center;
+}
+
+ .dadosProduto{
+     width: 200px;
+ }
+
+ .logoNetshoes{
+    width: 100%;
+    max-width: 150px;
+}
+ .logoCentauro{
+    width: 100%;
+    max-width: 150px;
+}
+.logoDucks{
+    width: 100%;
+    max-width: 150px;
+}
+
+.mostraFiltro{
+   color: rgb(153, 152, 152);
+   margin-left: 2em;
+   
+}
+
+.content{
+    background-color: #ece41a !important;
+}
+
+ion-row{
+    ion-card{
+        width:100% !important;
+        margin: 0 !important;
+    }
+}  
+
+.KmPoints{
+    color: #ece41a;
+    text-shadow: 1px 1px  black;
+    font-size: 0.6em;
+}
+
+.kmPointsNum{
+    color: #ece41a;
+    
+    font-size: 1.1em;
+}
+
+.grid{
+    background-color: #ece41a;
+}
+
+.btnsScroll{
+    width: 35px;
+    height: 35px;
+}
+
+
+
+}

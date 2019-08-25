@@ -1,0 +1,55 @@
+
+<ion-header id="header">
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Meus cupons</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content no-padding>
+  <ion-list>
+    <ion-item-sliding *ngFor="let cupom of cupons | async">
+      <ion-item>
+       <ion-thumbnail item-start>
+        <img class="fotoProduto" src="{{cupom.urlFoto}}">
+      </ion-thumbnail>  
+      <p *ngIf="cupom.status == true" class="produto" text-wrap><b>{{ cupom.produto }}</b></p>
+      <p *ngIf="cupom.status != true" text-wrap><b>{{ cupom.produto }}</b></p>
+      
+      <ion-grid>
+        <ion-row justify-content: start>
+          <ion-col col-6 col-xs align-self-center>
+            <div class="logoCentauro" *ngIf="cupom.loja == 'Centauro'"><img src="assets/imgs/logo_centauro.png"></div>
+            <div class="logoDucks" *ngIf="cupom.loja == 'Ducks Sports'"><img src="assets/imgs/logo_ducks.png"></div>
+            <div class="logoNetshoes" *ngIf="cupom.loja == 'Netshoes'"><img src="assets/imgs/logo_netshoes.png"></div>
+          </ion-col>
+          <ion-col col-6 col-xs align-self-center class="colunaStatus">
+            <p class="valido" *ngIf="cupom.status == true">Válido</p>
+            <p class="invalido" *ngIf="cupom.status != true">Inválido</p>
+          </ion-col>
+      </ion-row>
+      <ion-row justify-content: start>
+          <ion-col col-12 col-xs align-self-center class="colunaCodigo">
+              <p class="codigo"><b>Código:</b></p>
+              <p *ngIf="cupom.status == true" class="codigoValido" text-wrap>{{cupom.codigo}}</p>
+              <p *ngIf="cupom.status != true" class="codigoInvalido" text-wrap>{{cupom.codigo}}</p>
+          </ion-col>
+      </ion-row>
+     </ion-grid>
+      </ion-item>
+      <ion-item-options side="left">  
+          <button *ngIf="cupom.status == true" ion-button color="secondary" (click)="copiarCodigo(cupom.codigo)">
+           <ion-icon name="copy"></ion-icon>
+         </button> 
+         <button *ngIf="cupom.status == true" ion-button color="dark" (click)="irParaLoja(cupom.link)">
+            <ion-icon name="cart"></ion-icon>
+          </button>
+           <button *ngIf="cupom.status != true" ion-button color="danger" (click)="removerCupom(cupom.key)"> 
+             <ion-icon name="trash"></ion-icon>
+           </button>
+      </ion-item-options>
+    </ion-item-sliding>
+  </ion-list>
+</ion-content>

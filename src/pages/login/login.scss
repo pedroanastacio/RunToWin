@@ -1,0 +1,106 @@
+page-login {
+
+#principalCustom {
+       
+       background-image: url(../../assets/imgs/loginBackground.jpg);
+       background-size: cover;
+       background-position: center;
+       background-repeat: no-repeat;
+
+                
+                  
+       }
+  
+.loggoogle{
+  border-radius: 50px;
+  background-color: white !important;
+  margin:auto;
+  display: block;
+  padding: 1px 40px 1px 40px;
+  box-shadow: 2px 2px 10px black;
+  margin-top: 5%;
+  width: 80%;
+  height: 30px;
+  font-size: 1.2em;
+  font-weight: bold;
+  font-family: inherit, Roboto, "Helvetica Neue", "sans-serif";
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  text-align: center;
+  
+}
+
+.inicio{
+  margin-top: 5%;
+}
+
+
+.inputs{
+  margin-top: 5%;
+}
+
+.loginButtons{
+  margin-bottom: 5%;
+}
+
+.loginFooter{
+  position: absolute;
+  bottom:0;
+  text-align: center;
+  width: 100%;
+  
+}
+
+.msgCadastro{
+  margin-top:5%;
+  text-align: center;
+  color: white;
+  text-shadow: 1px 1px 1px black;
+  font-size: 1.2em;
+  margin-left: 0%;
+  line-height:1; 
+}
+
+.msgred{
+  color: red;
+  text-shadow: 1px 1px black;
+  font-size: 0.8em;
+}
+
+.bottun{
+  border-radius: 50px;
+  background-color: #ece41a !important;
+  margin:auto;
+  display: block;
+  padding: 1px 40px 1px 40px;
+  box-shadow: 2px 2px 10px black;
+  width: 80%;
+  height: 30px;;
+  font-size: 1.2em;
+  font-weight: bold;
+  font-family: inherit, Roboto, "Helvetica Neue", "sans-serif";
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  text-align: center;
+  margin-top: 10%;
+}
+
+.button-inner{
+  color: #ece41a !important;
+  text-shadow: 1px 1px 5px black !important;
+  font-size: 1em;
+  padding-bottom: 9%; 
+}
+
+.bntCadastro{
+  
+  font-size: 1em;
+}
+
+
+
+}

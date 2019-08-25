@@ -1,0 +1,44 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title style="font-size: 7vw;">Perfil</ion-title>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+  </ion-navbar>
+  <ion-fab top right>
+      <button ion-button color="dark" clear icon-only (click)="editPerfil()">
+        <ion-icon name="create"></ion-icon>
+      </button>
+  </ion-fab>
+</ion-header>
+
+<ion-content padding>
+    <ion-list *ngFor="let userperfil of userperfils | async">
+      <div class="photoPerfil">
+        <img src="assets/icon/user.png" *ngIf = "(userperfil.sexo == 'Masculino') && !useGoogle">
+        <img src="assets/icon/user_female.png" *ngIf = "(userperfil.sexo == 'Feminino') && !useGoogle">
+        <img src="{{photoUrl}}" *ngIf = "useGoogle">
+      </div>
+      <BR>
+     <div class="nomeUser">
+       <p class="nameUser" *ngIf = "!useGoogle"><b>{{ userperfil.name }}</b></p> 
+       <p class="nameUser" *ngIf = "useGoogle"><b>{{ name }}</b></p>
+     </div>
+     
+   <BR>
+   <BR>  
+       <ion-list-header class="headers" color="warning"><b>Sexo</b></ion-list-header>
+       <p class="dados">&nbsp;&nbsp;&nbsp;&nbsp;{{ userperfil.sexo }}</p>
+     <BR> 
+    <ion-list-header class="headers" color="warning"><b>Altura</b></ion-list-header>
+     <p class="dados">&nbsp;&nbsp;&nbsp;&nbsp;{{ userperfil.altura }}m</p>
+      <BR> 
+      <ion-list-header class="headers" color="warning"><b>Peso</b></ion-list-header>
+      <p class="dados">&nbsp;&nbsp;&nbsp;&nbsp;{{ userperfil.peso }}Kg</p> 
+    
+</ion-list>
+<ion-item class="sair" (click)="logout()" *ngIf="auth.authenticated">
+    <ion-icon color="danger" name="log-out" item-left></ion-icon>
+    Sair
+</ion-item>
+</ion-content>

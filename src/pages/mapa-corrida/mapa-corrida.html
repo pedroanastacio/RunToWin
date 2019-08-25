@@ -1,0 +1,22 @@
+
+<ion-header id="header">
+    <ion-navbar>
+      <button ion-button menuToggle>
+        <ion-icon name="menu"></ion-icon>
+      </button>
+      <ion-title>Corrida</ion-title>
+    </ion-navbar>
+  </ion-header>
+
+<ion-content no-padding>
+  <div #map id="map"></div>
+
+  <div>
+    <p><b>Data: </b><ion-icon color="primary" name="calendar"></ion-icon> {{data | date:"dd/MM/yy"}}</p>
+    <p><b>Duração: </b><ion-icon color="danger" name="stopwatch"></ion-icon> {{horas}}:{{minutos}}:{{segundos}}</p>
+    <p><b>Distância: </b><ion-icon color="secondary" name="walk"></ion-icon> {{distance}}Km</p>
+    <p><b>Velocidade Média: </b><ion-icon color="dark" name="speedometer"></ion-icon> {{velocidadeMedia}}Km/h</p>
+    <p><b>Calorias: </b><ion-icon color="warning" name="flame"></ion-icon> {{calorias}}Kcal</p>
+  </div>
+
+</ion-content>

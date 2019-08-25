@@ -1,0 +1,103 @@
+<ion-header id="header">
+    <ion-navbar>
+      <button ion-button menuToggle>
+        <ion-icon name="menu"></ion-icon>
+      </button>
+      <ion-title>Suas Corridas</ion-title>
+    </ion-navbar>
+  </ion-header>
+
+<ion-content padding>
+  <form [formGroup]="orderForm"> 
+    <ion-segment color="warning" class="filtros" [formControl]="orderForm.controls['orderTerm']">
+        <ion-segment-button *ngIf ="reverse" value="data" type="submit" (click)="orderDate()">Data</ion-segment-button>
+        <ion-segment-button *ngIf ="!reverse" value="data" type="submit" (click)="orderDateReverse()">Data</ion-segment-button>
+        <ion-segment-button *ngIf ="reverse" value="distance" type="submit" (click)="orderDistance()">Distância</ion-segment-button>
+        <ion-segment-button *ngIf ="!reverse" value="distance" type="submit" (click)="orderDistanceReverse()">Distância</ion-segment-button>
+        <ion-segment-button *ngIf ="reverse" value="hora" type="submit" (click)="orderTime()">Tempo</ion-segment-button>
+        <ion-segment-button *ngIf ="!reverse" value="hora" type="submit" (click)="orderTimeReverse()">Tempo</ion-segment-button>
+        <ion-segment-button *ngIf ="reverse" value="calorias" type="submit" (click)="orderCalorias()">Calorias</ion-segment-button>
+        <ion-segment-button *ngIf ="!reverse" value="calorias" type="submit" (click)="orderCaloriasReverse()">Calorias</ion-segment-button>
+
+      </ion-segment>
+  </form>    
+
+  <ion-list *ngIf ="!reverse">
+    <ion-item-sliding *ngFor="let corrida of corridas | async">
+        <ion-item>
+        <ion-grid>
+          <ion-row align-items: flex-start justify-content: start> 
+            <ion-col col-12 col-xs class="colunas">
+              <h2 class="data"><b><ion-icon color="primary" name="calendar"></ion-icon> {{ corrida.data | date:"dd/MM/yy" }}</b></h2>
+            </ion-col>
+          </ion-row>  
+          <ion-row align-items: flex-start justify-content: start>
+            <ion-col col-3 col-xs class="colunas">
+                <ion-icon color="danger" name="stopwatch"></ion-icon> {{corrida.hora}}:{{corrida.minutos}}:{{corrida.segundos}}
+            </ion-col>
+            <ion-col col-3 col-xs class="colunas">
+                <ion-icon color="secondary" name="walk"></ion-icon> {{ corrida.distance }}<span class="unidades">Km</span>
+            </ion-col>
+            <ion-col col-3 col-xs class="colunas">
+                <ion-icon color="dark" name="speedometer"></ion-icon> {{ corrida.velocidadeMedia }}<span class="unidades">Km/h</span>
+            </ion-col>
+            <ion-col col-3 col-xs class="colunas">
+                <ion-icon color="warning" name="flame"></ion-icon> {{corrida.calorias}}<span class="unidades">Kcal</span>
+            </ion-col>
+          </ion-row>   
+      </ion-grid>
+    </ion-item>
+      <ion-item-options side="left">  
+          <button ion-button color="warning" (click)="mostraTrajeto(corrida.key)">
+           <ion-icon name="map"></ion-icon>
+         </button> 
+      </ion-item-options>
+
+    </ion-item-sliding>
+  </ion-list>
+
+  <ion-list *ngIf ="reverse">
+      <ion-item *ngFor="let corrida of (corridas | async)?.slice().reverse()">
+          <ion-grid>
+            <ion-row align-items: flex-start justify-content: start> 
+              <ion-col col-12 col-xs class="colunas">
+                <h2 class="data"><b><ion-icon color="primary" name="calendar"></ion-icon> {{ corrida.data | date:"dd/MM/yy" }}</b></h2>
+              </ion-col>
+            </ion-row>  
+            <ion-row align-items: flex-start justify-content: start>
+              <ion-col col-3 col-xs class="colunas">
+                  <ion-icon color="danger" name="stopwatch"></ion-icon> {{corrida.hora}}:{{corrida.minutos}}:{{corrida.segundos}}
+              </ion-col>
+              <ion-col col-3 col-xs class="colunas">
+                  <ion-icon color="secondary" name="walk"></ion-icon> {{ corrida.distance }}<span class="unidades">Km</span>
+              </ion-col>
+              <ion-col col-3 col-xs class="colunas">
+                  <ion-icon color="dark" name="speedometer"></ion-icon> {{ corrida.velocidadeMedia }}<span class="unidades">Km/h</span>
+              </ion-col>
+              <ion-col col-3 col-xs class="colunas">
+                  <ion-icon color="warning" name="flame"></ion-icon> {{corrida.calorias}}<span class="unidades">Kcal</span>
+              </ion-col>
+            </ion-row>   
+        </ion-grid>
+      </ion-item>
+    </ion-list>
+   
+
+
+<ion-grid ion-fixed class="totalGrid">
+    <ion-row align-items: flex-start justify-content: start>
+      <ion-col col-3 col-xs class="colunas" >
+          <span class="total">Total:</span>
+      </ion-col>
+      <ion-col col-3 col-xs class="colunas">
+        <ion-icon color="danger" name="stopwatch"></ion-icon> {{horasFinal}}:{{minutosFinal}}:{{segundosFinal}}
+      </ion-col>
+      <ion-col col-3 col-xs class="colunas">
+        <ion-icon color="secondary" name="walk"></ion-icon> {{ totalDistance }}<span class="unidades">Km</span>
+      </ion-col>
+      <ion-col col-3 col-xs class="colunas">
+        <ion-icon color="warning" name="flame"></ion-icon> {{totalCal}}<span class="unidades">Kcal</span>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content> 

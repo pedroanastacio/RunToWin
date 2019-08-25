@@ -1,0 +1,52 @@
+<ion-header *ngIf = "cadastro == 'editar'" id="header">
+  <ion-navbar>
+    <ion-title>{{ title }}</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+    <form [formGroup]="form">
+        <ion-item> 
+          <ion-label class="label" stacked >Nome</ion-label>
+          <ion-input class="input" type="text" placeholder="Insira o nome" formControlName="name"></ion-input> 
+        </ion-item>
+
+        <ion-list radio-group [formControl]="form.controls['sexo']" [(ngModel)]="sexo">
+            <ion-list-header>Sexo</ion-list-header>
+            <ion-item>
+              <ion-label >Masculino</ion-label>
+              <ion-radio color="warning" value="Masculino"></ion-radio>
+            </ion-item>
+            
+            <ion-item>
+              <ion-label >Feminino</ion-label>
+              <ion-radio color="warning" value="Feminino"></ion-radio>
+            </ion-item>
+            
+        </ion-list>
+
+        <ion-item>
+            <ion-label stacked>Altura</ion-label>
+            <ion-input class="input"  type="number" placeholder="Insira a altura em metros(m)" formControlName="altura"></ion-input>
+        </ion-item>
+
+        <ion-item>
+            <ion-label class="label" stacked>Peso</ion-label>
+            <ion-input class="input" type="number" placeholder="Insira o peso em quilos(Kg)" formControlName="peso"></ion-input>
+        </ion-item>    
+    
+    <div class="btnSave" padding *ngIf="cadastro == 'editar'"> 
+      <button ion-button block type="submit" [disabled]="!form.valid" (click)="editarPerfil()"><p class="txtBtnSave"><b>Salvar</b></p></button>
+    </div>
+
+    <div class="btnSave" padding *ngIf="cadastro == 'cadastro'"> 
+      <button ion-button block type="submit" [disabled]="!form.valid" (click)="editarPerfilCad()"><p class="txtBtnSave"><b>Salvar</b></p></button>
+    </div>
+
+    <div class="btnSave" padding *ngIf="cadastro == 'google'"> 
+      <button ion-button block type="submit" [disabled]="!form.valid" (click)="editarPerfilGoogle()"><p class="txtBtnSave"><b>Salvar</b></p></button>
+    </div>
+    
+    
+       </form> 
+</ion-content>

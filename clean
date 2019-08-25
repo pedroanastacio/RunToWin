@@ -1,0 +1,11 @@
+> cordova platform add - --save
+Using cordova-fetch for -
+Failed to fetch platform -
+Probably this is either a connection problem, or platform spec is incorrect.
+Check your connection and platform name/version/URL.
+Error: npm: Command failed with exit code 1 Error output:
+npm ERR! code E404
+npm ERR! 404 Not Found: -@latest
+
+npm ERR! A complete log of this run can be found in:
+npm ERR!     C:\Users\PedroH\AppData\Roaming\npm-cache\_logs\2019-05-18T13_32_04_121Z-debug.log

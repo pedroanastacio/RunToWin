@@ -1,0 +1,59 @@
+<ion-header id="header">
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Corrida</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content no-padding>
+    <ion-grid>
+        <ion-row align-items: flex-start justify-content-around class="body">
+          <ion-col col-6>
+              <div>
+                  <span class="distance">{{distanceArred}}</span><span class="km">Km</span>
+              </div>
+          </ion-col>
+          <ion-col col-6>
+              <div>
+                <span class="cronometro">{{hora}}:{{minuto}}:{{segundo}}</span>
+              </div> 
+          </ion-col>
+        </ion-row>
+        <ion-row *ngIf="speed != null" align-items: flex-start justify-content-around class="body">
+            <ion-col col-12>
+            <div>
+                <span class="velocidade">{{speedKm}}</span><span class="km">Km/h</span>
+            </div> 
+            </ion-col>  
+        </ion-row>
+      </ion-grid>
+    
+    <div #map id="map"></div>
+   
+    <button ion-button class="runButtons" color="dark" full icon-left (click)="startTracking()" *ngIf="!isTracking && !isPaused" [disabled]="!isReadyToRun" >
+        <ion-icon name="walk"></ion-icon>
+        Iniciar Corrida
+    </button>
+    <button ion-button class="runButtons" color="warning" full icon-left (click)="pauseCorrida()" *ngIf="isTracking && !isPaused" [disabled]="!isReadyToRun" >
+      <ion-icon name="hand"></ion-icon>
+        Pausar Corrida
+    </button>
+
+    <button ion-button class="runButtons" color="dark" full icon-left (click)="reiniciarCorrida()" *ngIf="!isTracking && isPaused" [disabled]="!isReadyToRun" >
+      <ion-icon name="walk"></ion-icon>
+        Retomar Corrida
+    </button>
+
+    <button ion-button class="runButtons" full color="danger" icon-left (click)="stopTracking()" *ngIf="isTracking || (!isTracking && isPaused)">
+        <ion-icon name="man"></ion-icon>
+        Finalizar Corrida
+    </button>
+
+    
+    
+    
+    
+    
+</ion-content>

@@ -1,0 +1,175 @@
+
+<ion-header id="header">
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Cupons</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content class="content" no-padding>
+
+    <ion-item class="busca">
+        <ion-label>Buscar por</ion-label>
+        <ion-select interface="popover" [(ngModel)]="filtro" placeholder="Selecione uma opção">
+          <ion-option *ngIf="!filtroMarca" value="marca">Marca</ion-option>
+          <ion-option *ngIf="!filtroDesconto" value="porcentagem">Desconto</ion-option>
+          <ion-option *ngIf="!filtroLoja" value="loja">Loja</ion-option>
+          <ion-option *ngIf="!filtroCategoria" value="categoria">Categoria</ion-option>
+          <ion-option *ngIf="!filtroPreco" value="preco">Preço</ion-option>
+          <ion-option *ngIf="!filtroKmPoints" value="kmPoints">KmPoints</ion-option>
+        </ion-select>
+    </ion-item>
+   
+    <ion-item class="busca1" *ngIf = "filtro == 'categoria'">
+      <ion-label>Categoria</ion-label>
+      <ion-select interface="popover" [disabled]="sexo == 'Masculino' || sexo == 'Feminino'" [(ngModel)]="categoria" (ionChange)="filterExact('Categoria', categoria)" placeholder="Selecione uma opção">
+        <ion-option value="Tênis">Tênis</ion-option>
+        <ion-option value="Camiseta">Camiseta</ion-option>
+        <ion-option value="Regata">Regata</ion-option>
+        <ion-option value="Moletom">Moletom</ion-option>
+        <ion-option value="Shorts">Shorts</ion-option>
+        <ion-option value="Calça">Calça</ion-option>
+        <ion-option value="Meia">Meia</ion-option>
+      </ion-select>
+  </ion-item>
+
+  <ion-item class="busca1" *ngIf = "filtro == 'categoria'">
+    <ion-label>Sexo</ion-label>
+    <ion-select interface="popover" [(ngModel)]="sexo" [disabled]="!categoria"  (ionChange)="filterExact('Sexo', sexo)" placeholder="Selecione uma opção">
+        <ion-option value="Masculino">Masculino</ion-option>
+        <ion-option value="Feminino">Feminino</ion-option>
+    </ion-select>
+</ion-item> 
+
+    
+    <ion-item class="busca1" *ngIf = "filtro == 'marca'">
+        <ion-label>Marca</ion-label>
+        <ion-select interface="popover" [(ngModel)]="marca" (ionChange)="filterExact('Marca', marca)" placeholder="Selecione uma opção">
+            <ion-option value="Adidas">Adidas</ion-option>
+            <ion-option value="Nike">Nike</ion-option>
+            <ion-option value="Puma">Puma</ion-option>
+            <ion-option value="Olympikus">Olympikus</ion-option>
+            <ion-option value="Mizuno">Mizuno</ion-option>
+            <ion-option value="Asics">Asics</ion-option>
+            <ion-option value="Under Armour">Under Armour</ion-option>
+        </ion-select>
+    </ion-item>
+
+    <ion-item class="busca1" *ngIf = "filtro == 'porcentagem'">
+        <ion-label>Cupom</ion-label>
+        <ion-select interface="popover" [(ngModel)]="porcentagem" (ionChange)="filterExact('Desconto', porcentagem)" placeholder="Selecione uma opção">
+            <ion-option value="5">5%</ion-option>
+            <ion-option value="10">10%</ion-option>
+            <ion-option value="15">15%</ion-option>
+            <ion-option value="20">20%</ion-option>
+        </ion-select>
+    </ion-item>
+    
+    <ion-item class="busca1" *ngIf = "filtro == 'loja'">
+        <ion-label>Loja</ion-label>
+        <ion-select interface="popover" [(ngModel)]="loja" (ionChange)="filterExact('Loja', loja)" placeholder="Selecione uma opção">
+            <ion-option value="Ducks Sports">Ducks Sports</ion-option>
+            <ion-option value="Netshoes">Netshoes</ion-option>
+            <ion-option value="Centauro">Centauro</ion-option>
+        </ion-select>
+    </ion-item>  
+
+    <ion-item class="busca1" *ngIf = "filtro == 'preco'">
+      <ion-label>Preço</ion-label>
+      <ion-input type="number" placeholder="Mínimo" [(ngModel)]="min"></ion-input>
+      <ion-input type="number" placeholder="Máximo" [(ngModel)]="max"></ion-input>
+    </ion-item>
+
+    <ion-item class="busca1" *ngIf = "filtro == 'kmPoints'">
+        <ion-label>KmPoints</ion-label>
+        <ion-input type="number" placeholder="Mínimo" [(ngModel)]="min"></ion-input>
+        <ion-input type="number" placeholder="Máximo" [(ngModel)]="max"></ion-input>
+      </ion-item>
+  
+  <button ion-button full *ngIf="filtro == 'preco' && min != null && max != null" color="dark" (click)="filterGreaterThan('PrecoDesconto', min, max)"><ion-icon name="search"></ion-icon>Buscar</button>
+  <button ion-button full *ngIf="filtro == 'kmPoints' && min != null && max != null" color="dark" (click)="filterGreaterThan('KmPoints', min, max)"><ion-icon name="search"></ion-icon>Buscar</button>
+  
+  <button ion-button full *ngIf="filtro == 'categoria' && property != null" color="danger" (click)="removeFilter('categoria')">Remover filtro</button>
+  <button ion-button full *ngIf="filtro == 'loja' && property != null" color="danger" (click)="removeFilter('loja')">Remover filtro</button>
+  <button ion-button full *ngIf="filtro == 'porcentagem' && property != null" color="danger" (click)="removeFilter('porcentagem')">Remover filtro</button>
+  <button ion-button full *ngIf="filtro == 'marca' && property != null" color="danger" (click)="removeFilter('marca')">Remover filtro</button>
+  <button ion-button full *ngIf="filtro == 'preco' && min != null && max != null" color="danger" (click)="removeFilter('precoDesconto')">Remover filtro</button>
+  <button ion-button full *ngIf="filtro == 'kmPoints' && min != null && max != null" color="danger" (click)="removeFilter('kmPoints')">Remover filtro</button>
+
+    <!--<ion-list>
+        <ion-item-sliding *ngFor="let produto of produtos | async">
+          <ion-item>
+           <ion-thumbnail item-start *ngIf="listaProdutos.modalidade == 'Futebol'">
+            <img src="assets/icon/icon_futebol.png">
+          </ion-thumbnail>  
+          <ion-thumbnail item-start *ngIf="listaProdutos.modalidade == 'Futsal'">
+            <img src="assets/icon/icon_futsal.jpg">  
+          </ion-thumbnail>
+          <h2><b>{{ listaProdutos.nomeProduto }}</b></h2>
+          <ion-grid>
+            <ion-row justify-content: start>
+              <ion-col col-6 col-xs align-self: flex-start class="colunaDados">
+                  <h2 class="preco">{{ listaProdutos.preco | currency:'BRL':true }}</h2>
+                  <p class="cupom"><ion-icon name="pricetags" color="secondary"></ion-icon>{{ listaProdutos.porcentagem}}%</p>
+                  <p>Tamanho: {{listaProdutos.tamanho}}</p>
+                  
+              </ion-col>
+              <ion-col col-6 col-xs align-self-center class="colunaLogo">
+                <div class="logoCentauro" *ngIf="listaProdutos.loja == 'Centauro'"><img src="assets/imgs/logo_centauro.png"></div>
+                <div class="logoDucks" *ngIf="listaProdutos.loja == 'Ducks Sports'"><img src="assets/imgs/logo_ducks.png"></div>
+                <div class="logoNetshoes" *ngIf="listaProdutos.loja == 'Netshoes'"><img src="assets/imgs/logo_netshoes.png"></div>
+              </ion-col>
+          </ion-row>
+         </ion-grid>
+          </ion-item>
+          <ion-item-options side="left">  
+              <button ion-button color="dark" (click)="editarproduto(produto)">
+               <ion-icon name="create"></ion-icon>
+             </button> 
+               <button ion-button color="danger" (click)="removerproduto(listaProdutos.key)"> 
+                 <ion-icon name="trash"></ion-icon>
+               </button>
+               
+             </ion-item-options>
+        </ion-item-sliding>
+      </ion-list>-->
+    
+    <p class="mostraFiltro">{{filtros}}</p>
+    
+
+    <ion-list class="grid">
+      <ion-grid>
+        <ion-row align-items: flex-start justify-content-center>
+          <ion-col class="colunaCard" *ngFor="let listaProdutos of filteredProdutos"  col-6>
+            <ion-card style="border-radius: 10px;" (tap)='showProduto(listaProdutos.key)'>
+              <img src="{{ listaProdutos.url }}" class="imgCard"/>
+              <ion-card-content>
+                <ion-card-title>
+                  <div class="logoCentauro" *ngIf="listaProdutos.Loja == 'Centauro'"><img src="assets/imgs/logo_centauro.png"></div>
+                  <div class="logoDucks" *ngIf="listaProdutos.Loja == 'Ducks Sports'"><img src="assets/imgs/logo_ducks.png"></div>
+                  <div class="logoNetshoes" *ngIf="listaProdutos.Loja == 'Netshoes'"><img src="assets/imgs/logo_netshoes.png"></div>
+                  <h2><b>{{ listaProdutos.nomeProduto }}</b></h2>
+                  <p class="KmPoints"><span class="kmPointsNum">{{listaProdutos.KmPoints}}</span> KmPoints</p>
+                  <h2 class="preco">{{ listaProdutos.Preco | currency:'BRL':true }}</h2>
+                  <h2 class="cupom"><ion-icon name="pricetags" color="secondary"></ion-icon>{{ listaProdutos.Desconto}}%</h2>
+                  <h2 class="desconto"><b>{{listaProdutos.PrecoDesconto | currency:'BRL':true }}</b></h2>
+                  
+                </ion-card-title>
+              </ion-card-content>
+            </ion-card>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+    </ion-list>
+      
+    <ion-fab bottom right>
+      <button ion-fab class="btnsScroll" color="dark" (click)="scrollToTop()">
+        <ion-icon name="arrow-dropup"></ion-icon>
+      </button>
+      <button ion-fab class="btnsScroll" color="dark" (click)="scrollToBottom()">
+        <ion-icon name="arrow-dropdown"></ion-icon>
+      </button>
+    </ion-fab> 
+</ion-content>
