@@ -60,7 +60,7 @@ import { LocalNotifications } from '@ionic-native/local-notifications';
     IonicStorageModule.forRoot(),
     IonicModule.forRoot(MyApp),
     AngularFireModule.initializeApp({
-      apiKey: "*****************************",
+      apiKey: "*********************************",
       authDomain: "runtowin-c739f.firebaseapp.com",
       databaseURL: "https://runtowin-c739f.firebaseio.com",
       projectId: "runtowin-c739f",
