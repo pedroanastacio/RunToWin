@@ -44,7 +44,7 @@ constructor(public afAuth: AngularFireAuth, private db: AngularFireDatabase, pri
 
 	signInWithGoogle() {
 		return this.googlePlus.login({
-			'webClientId': '411395556040-eseu7inkieoo275tbk68jrt5skao0rlm.apps.googleusercontent.com',
+			'webClientId': 'XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX',
 			//'offline': true
 			})
 			.then(res => {
